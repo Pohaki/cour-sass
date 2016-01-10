@@ -1,0 +1,437 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sass</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>SASS</h1>
+                <p>(Syntactitcally Awesome Style Sheets)</p>
+            </section>
+            <section>
+                 <!==========================SASS=========================>
+                <section>
+                    <p>Le CSS possède des limites, c'est pourquoi des personnes on créer ce que l'on appelle des pré-processeurs du langages CSS.</p>
+                    <p>En gros, c'est une extension du langage CSS.</p>
+                </section>
+                <section>
+                    <h3>Mais SASS ça sert à quoi ?</h3>
+                    <p class="fragment">Il ajoute des options bien pratique tel que :<span class="fragment"> les variables,</span><span class="fragment"> le nesting,</span><span class="fragment"> les mixins,</span><span class="fragment"> et d'autres options très utiles !</span></p>     
+                </section>
+                <section>
+                    <h3>D'autre solution que SASS ?</h3>
+                    <p class="fragment">Effectivement il existe d'autres langages pré-procésseur CSS</p>
+                    <p class="fragment"><a href="http://lesscss.org">Less</a>, <a href="http://stylus-lang.com">Stylus</a> et SCSS mais SASS va plus loin dans la simplification. </p>
+                    <p class="fragment">On peut même dire arivederci au {}.</p>
+                    <p class="fragment">Mais dans un soucis de compréhension tout les exemples seront en SCSS</p>
+                </section>
+                 <section>
+                    <h3>Un Pré-processeur ?</h3>
+                    <p class="fragment">Un Pré-processeur signifie qu'il y a un procéssus de compilation entre le code d'entrée et le code de sortie</p>
+                    <p class="fragment">Tu profite de tout les avantages de SASS et le compilateur lui s'occupe de traduire tout ça en CSS
+                    </p>
+                    <p>
+                    <span class="fragment">Le Top non ?</span>
+                    </p>
+                </section>
+                <section>
+                    <p>Tout cela laisse entendre qu'il va falloir installer SASS</p>
+                    <p><span class="fragment">Et</span> <span class="fragment">c'est le cas !</span>
+                    </p>
+                </section>
+            </section>
+            <!==========================Installation=========================>
+            <section>
+                <h2>L'installation</h2>
+            </section>
+            <section>
+                <section>
+                    <h2>Linux et Mac OS</h2>
+                    <p class="fragment">Il suffit d'entrer une ligne de commande dans le terminale</p>
+                    <pre class="fragment"><code class="hljs">gem install sass</code></pre>
+                    <p class="fragment">Easy</p>
+                </section>
+                <section>
+                    <h2>Windows</h2>
+                    <ol>
+                        <li class="fragment">Il faut <a href="http://rubyinstaller.org/downloads/">installer Ruby</a></li>
+                        <li class="fragment">Après l'installation il devrait avoir un fichier exécutable du nom "Start command prompt with Ruby". Exécute le en tant qu'administrateur</li>
+                        <li class="fragment">Ruby utilise un système de gestion des package appelé "gem".</li>
+                        <li class="fragment">Il te suffit donc de taper dans ton terminal</li>
+                        <pre class="fragment"><code class="hljs">sudo gem install sass</code></pre>
+                        
+                    </ol>
+                </section>
+            </section>
+             <!==========================Config Projet=========================>
+            <section>
+                <h2>Comment créer un projet avec SASS</h2>
+            </section>
+            <section>
+                <section>
+                    <p>Nous allons avoir besoin du terminal et d'un projet</p>
+                    <p>Nous devons créer un dossier CSS et un dossier SCSS au même niveau</p>
+                     <div class="fragment">
+                         <p>Le dossier SCSS devras contenir un fichier style.scss</p>
+                        <img src="img/install/start-project.png" alt="Architecture Projet avec SASS" />
+                     </div>
+                </section>
+                <section>
+                    <p>Enfin dans le terminale en étant dans le dossier du Projet</p>
+                    <div class="fragment">
+                         <p>Il suffit d'entrer:</p>
+                            <pre><code class="hljs">sass --watch scss:css</code></pre>
+                        <img src="img/install/command-terminal.png" alt="Architecture Projet avec SASS" />
+                     </div>
+                    <p class="fragment">A partir de maintenant à chaque sauvegarde du fichier SCSS la compilation se fera automatiquement dans un fichier style.css dans le dossier CSS.</p>
+                </section>
+            </section>
+            <section data-background="http://i.giphy.com/RKS1pHGiUUZ2g.gif">
+               <p class="fragment">Ok <span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span></p>
+            </section> 
+            <section>
+                <p>Bon, à partir de maintenant on rentre dans le vif du sujet !</p>
+            </section>
+             <!==========================Variables=========================>
+            <section>
+                <section>
+                    <h2>Les variables</h2>
+                </section>
+                <section>
+                    <p>SASS permet d'attribuer des valeurs à des variables</p>
+                    <p>Et cela très facilement il suffit d'écrire </p> 
+                    <pre class="fragment"><code class="hljs">$variable:valeur;</code></pre>
+                </section>
+                 <section>
+                    <h6>SCSS</h6>
+                    <pre><span style="color:#5fe461"><span style="color:#e1efff">$</span>color-red</span>: <span style="color:#edf080"><span style="color:#e1efff">#</span>ff0000</span>;
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>title-size</span>: <span style="color:#edf080">20<span style="color:#ff9d00">px</span></span>;
+
+<span style="color:#9effff">body</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>color-red</span>;</span>
+    <span style="color:#9df39f">font-size</span><span style="color:#e1efff">:</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>title-size</span><span style="color:#e1efff">;</span>
+}
+</pre>
+                     <h6>CSS</h6>
+                     <pre><span style="color:#9effff">body</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>ff0000</span><span style="color:#e1efff">;</span>
+    <span style="color:#9df39f">font-size</span><span style="color:#e1efff">:</span> <span style="color:#edf080">20<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+}
+</pre>
+                </section>
+            </section>
+            <!==========================Nesting=========================>
+            <section data-background="http://i.giphy.com/26tP7cDNJUZQy7w3u.gif">
+            </section>
+            <section >
+                <section>
+                    <h2>Le nesting</h2>
+                </section>
+                <section>
+                    <p>Le nesting c'est appliquer le principe d'héritage au CSS</p>
+                    <p>Un exemple sera plus parlant</p>
+                </section>
+                <section>
+                    <h6>SCSS</h6>
+                    <pre><span style="color:#9effff">nav</span><span style="color:#e1efff">{</span>
+<span style="color:#9df39f">background-color</span><span style="color:#e1efff">:</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>FEFEFE</span><span style="color:#e1efff">;</span>
+   <span style="color:#9effff">ul</span>{
+        <span style="color:#9effff">li</span>{
+            <span style="color:#9df39f">margin-left</span><span style="color:#e1efff">:</span><span style="color:#edf080">5<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+        }
+    }
+}</pre>
+                     <h6>CSS</h6>
+                     <pre><span style="color:#9effff">nav</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">background-color</span><span style="color:#e1efff">:</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>FEFEFE</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#9effff">nav</span> <span style="color:#9effff">ul</span> <span style="color:#9effff">li</span> <span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">margin-left</span><span style="color:#e1efff">:</span><span style="color:#edf080">5<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+}
+</pre>
+                </section>
+                <section>
+                    <p>On peut l'utilisé avec les symboles de sélecteur CSS</p>
+                    <h6>SCSS</h6>
+                    <pre><span style="color:#9effff">article</span><span style="color:#e1efff">{</span>
+    ~ <span style="color:#9effff">article</span>{
+        <span style="color:#9df39f">padding-top</span><span style="color:#e1efff">:</span> <span style="color:#edf080">2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>
+    }
+    > <span style="color:#9effff">h2</span> <span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">border</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">1<span style="color:#ff9d00">px</span></span> <span style="color:#f6f080">solid</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>FF0000</span><span style="color:#e1efff">;</span>
+    }
+    + <span style="color:#9effff">footer</span><span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">margin-top</span><span style="color:#e1efff">:</span> <span style="color:#edf080">0<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    }
+    <span style="color:#9effff">*</span> <span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>000</span><span style="color:#e1efff">;</span>
+    }               
+}
+</pre>
+                     
+                </section>
+                
+                <section>
+                    <h6>CSS</h6>
+                     <pre><span style="color:#9effff">article</span> ~ <span style="color:#9effff">article</span> <span style="color:#e1efff">{</span>
+   <span style="color:#9df39f">padding-top</span><span style="color:#e1efff">:</span> <span style="color:#edf080">2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span> 
+}
+<span style="color:#9effff">article</span> > <span style="color:#9effff">h2</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">border</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">1<span style="color:#ff9d00">px</span></span> <span style="color:#f6f080">solid</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>FF0000</span><span style="color:#e1efff">;</span>
+    }
+<span style="color:#9effff">article</span> + <span style="color:#9effff">footer</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">margin-top</span><span style="color:#e1efff">:</span> <span style="color:#edf080">0<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+}
+<span style="color:#9effff">article</span> <span style="color:#9effff">*</span> <span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span><span style="color:#edf080"><span style="color:#e1efff">#</span>000</span><span style="color:#e1efff">;</span>
+}
+</pre>
+                </section>
+                <section>
+                    <p>On peut aussi sélectionné le parent avec "&" </p>
+                    <h6>SCSS</h6>
+                    <pre><span style="color:#9effff">a</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span> <span style="color:#eb939a">blue</span><span style="color:#e1efff">;</span>
+    &amp;<span style="color:#fd0"><span style="color:#e1efff">:</span>hover</span>{
+        <span style="color:#9df39f">color</span>:<span style="color:#eb939a">green</span><span style="color:#e1efff">;</span>
+    }
+    <span style="color:#9df39f">display</span>:<span style="color:#f6f080">inline-block</span>;
+}
+</pre>
+                     <h6>CSS</h6>
+                     <pre><span style="color:#9effff">a</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span><span style="color:#eb939a">blue</span><span style="color:#e1efff">;</span>
+    <span style="color:#9df39f">display</span><span style="color:#e1efff">:</span><span style="color:#f6f080">inline-block</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#9effff">a</span><span style="color:#fd0"><span style="color:#e1efff">:</span>hover</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">color</span><span style="color:#e1efff">:</span><span style="color:#eb939a">green</span><span style="color:#e1efff">;</span>
+}
+</pre>
+                </section>
+                <section>
+                    <p>On peut aussi ajouter un contexte avec "&" </p>
+                    <h6>SCSS</h6>
+                    <pre><span style="color:#9effff">article</span><span style="color:#e1efff">{</span>
+   <span style="color:#9effff">h2</span><span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">font-size</span><span style="color:#e1efff">:</span> <span style="color:#edf080">2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>
+    }
+    <span style="color:#5fe461"><span style="color:#e1efff">.</span>info</span> &amp;<span style="color:#e1efff">{</span>
+        <span style="color:#9effff">h2</span>{
+            <span style="color:#9df39f">font-size</span><span style="color:#e1efff">:</span> <span style="color:#edf080">1.5<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>
+        }
+    }
+    <span style="color:#9df39f">display</span><span style="color:#e1efff">:</span> <span style="color:#edf080">inline-block</span><span style="color:#e1efff">;</span>
+}
+</pre>
+
+                     <h6>CSS</h6>
+                     <pre><span style="color:#9effff">article</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">display</span><span style="color:#e1efff">:</span><span style="color:#edf080">inline-block</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#9effff">article</span> <span style="color:#9effff">h2</span> <span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">font-size</span><span style="color:#e1efff">:</span><span style="color:#edf080">2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>
+}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>info</span> <span style="color:#9effff">article</span> <span style="color:#9effff">h2</span><span style="color:#e1efff">{</span> 
+    <span style="color:#9df39f">font-size</span><span style="color:#e1efff">:</span><span style="color:#edf080">1.5<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>
+        }                  
+           
+</pre>
+                </section>
+                 <section>
+                    <p>Les media queries</p>
+                    <h6>SCSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>container</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">margin</span><span style="color:#e1efff">:</span> <span style="color:#edf080">0</span> <span style="color:#f6f080">auto</span><span style="color:#e1efff">;</span>
+    <span style="color:#ff9d00"><span style="color:#e1efff">@</span>media</span> <span style="color:#eb939a">screen</span> <span style="color:#ff9d00">and</span>(<span style="color:#80ffbb">min-width</span><span style="color:#e1efff">:</span> <span style="color:#ff628c">1280<span style="color:#ff9d00">px</span></span>){
+        <span style="color:#9df39f">margin</span><span style="color:#e1efff">:</span> <span style="color:#edf080">25</span><span style="color:#ff9d00">px</span><span style="color:#e1efff">;</span>
+    }
+    <span style="color:#ff9d00"><span style="color:#e1efff">@</span>media</span> <span style="color:#eb939a">screen</span> <span style="color:#ff9d00">and</span> (<span style="color:#80ffbb">min-width</span><span style="color:#e1efff">:</span> <span style="color:#ff628c">768<span style="color:#ff9d00">px</span></span>)<span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">margin</span><span style="color:#e1efff">:</span> <span style="color:#edf080">10</span><span style="color:#ff9d00">px</span><span style="color:#e1efff">;</span>
+    }
+</pre>
+                </section>
+                <section>
+                     <h6>CSS</h6>
+                     <pre><span style="color:#5fe461"><span style="color:#e1efff">.</span>container</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">margin</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">0</span> <span style="color:#f6f080">auto</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>media</span> <span style="color:#eb939a">screen</span> <span style="color:#ff9d00">and</span> (<span style="color:#80ffbb">min-width</span><span style="color:#e1efff">:</span> <span style="color:#ff628c">1280<span style="color:#ff9d00">px</span></span>)<span style="color:#e1efff">{</span>
+    <span style="color:#5fe461"><span style="color:#e1efff">.</span>content</span><span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">margin</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">25<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    }
+<span style="color:#e1efff">}</span>
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>media</span> <span style="color:#eb939a">screen</span> <span style="color:#ff9d00">and</span> (<span style="color:#80ffbb">min-width</span><span style="color:#e1efff">:</span> <span style="color:#ff628c">768<span style="color:#ff9d00">px</span></span>)<span style="color:#e1efff">{</span>
+    <span style="color:#5fe461"><span style="color:#e1efff">.</span>content</span><span style="color:#e1efff">{</span>
+        <span style="color:#9df39f">margin</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">10<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    }
+<span style="color:#e1efff">}</span>
+</pre>
+                </section>
+            </section>
+            <section data-background="http://i.giphy.com/12WHjhvHQZQo6Y.gif" data-background-size="1280px">
+            
+            </section>
+        <!==========================EXTEND================================>
+            <section>
+                <section>
+                    <h2>extend</h2>
+                </section>
+                <section>
+                    <p>Nous permet d'appeller les propriete d'un séléecteur à un autre.</p>
+                      <h6>SCSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>button</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">width</span><span style="color:#e1efff">:</span> <span style="color:#edf080">50<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    <span style="color:#9df39f">height</span><span style="color:#e1efff">:</span> <span style="color:#edf080">25<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    <span style="color:#9df39f">border</span><span style="color:#e1efff">:</span> <span style="color:#edf080">1<span style="color:#ff9d00">px</span></span> <span style="color:#f6f080">solid</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>DDD</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>button-success</span><span style="color:#e1efff">{</span>
+    <span style="color:#ff9d00"><span style="color:#e1efff">@</span>extend</span> .button;
+    <span style="color:#9df39f">border-color</span><span style="color:#e1efff">:</span> <span style="color:#eb939a">green</span><span style="color:#e1efff">;</span>
+}
+</pre>
+                    
+                </section>
+                <section>
+                    <h6>CSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>button</span>, <span style="color:#5fe461"><span style="color:#e1efff">.</span>button-success</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">width</span><span style="color:#e1efff">:</span> <span style="color:#edf080">50<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    <span style="color:#9df39f">height</span><span style="color:#e1efff">:</span> <span style="color:#edf080">25<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+    <span style="color:#9df39f">border</span><span style="color:#e1efff">:</span> <span style="color:#edf080">1<span style="color:#ff9d00">px</span></span> <span style="color:#f6f080">solid</span> <span style="color:#edf080"><span style="color:#e1efff">#</span>DDD</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>button-success</span><span style="color:#e1efff">{</span>
+    <span style="color:#9df39f">border-color</span><span style="color:#e1efff">:</span> <span style="color:#eb939a">green</span><span style="color:#e1efff">;</span>
+}</pre>
+                </section>
+            </section>
+            <!======================== Mixin =============================>
+            <section data-background="http://i.giphy.com/FNtVBX71o3gGc.gif" data-background-size="1400px">
+                <h3>CSS à SCSS</h3>
+            </section>
+            <section>
+                <section>
+                    <h2>Les Mixins</h2>
+                </section>
+                <section>
+                    <h4>Les mixins c'est quoi ?</h4>
+                    <p class="fragment">C'est une options qui permet de réutiliser des morceaux entier de CSS.</p>
+                    <p class="fragment">On peut même lui donner des arguments, pour créer des formes complexes avec une seule ligne de code !</p>
+                </section>
+                <section>
+                    <h6>SCSS</h6>
+                    <pre> <span style="color:#ff9d00"><span style="color:#e1efff">@</span>mixin</span> <span style="color:#9df39f">border-radius</span>(<span style="color:#5fe461"><span style="color:#e1efff">$</span>radius</span>) <span style="color:#e1efff">{</span>
+  -webkit-<span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span><span style="color:#5fe461"> <span style="color:#e1efff">$</span>radius</span><span style="color:#e1efff">;</span>
+     -moz-<span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>radius</span><span style="color:#e1efff">;</span>
+      -ms-<span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>radius</span><span style="color:#e1efff">;</span>
+          <span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>radius</span><span style="color:#e1efff">;</span>
+}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>box</span> <span style="color:#e1efff">{</span> <span style="color:#ff9d00"><span style="color:#e1efff">@</span>include</span> <span style="color:#9df39f">border-radius</span>(<span style="color:#edf080">10<span style="color:#ff9d00">px</span></span>); }
+
+</pre>
+                </section>
+                <section>
+                <h6>CSS</h6>
+                <pre><span style="color:#5fe461"><span style="color:#e1efff">.</span>box</span> <span style="color:#e1efff">{</span>
+  -webkit-<span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#edf080">10<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+  -moz-<span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#edf080">10<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+  -ms-<span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#edf080">10<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+  <span style="color:#9df39f">border-radius</span><span style="color:#e1efff">:</span> <span style="color:#edf080">10<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+}
+</pre>
+                </section>
+                <section>
+                    <h4>Mais du coup, il n'y as pas de librairie de mixin ?</h4>
+                    <p class="fragment">Oui il y a des librairies de mixin SASS :    
+                    <ul class="fragment">
+                        <li><a href="http://compass-style.org">COMPASS</a></li>
+                        <li><a href="http://bourbon.io">Bourbon</a></li>
+                        <li><a href="https://github.com/twbs/bootstrap-sass">Bootstrap SASS</a></li>
+                        <li><a href="http://neat.bourbon.io">Bourbon Neat</a></li>
+                        <li><a href="http://foundation.zurb.com">Foundation</a></li>
+                    </ul></p>
+                    <p class="fragment">Je te laisse de renseigner sur le sujet c'est très utiles notament le principe de <a href="http://compass-style.org/help/tutorials/spriting/">sprites.</a></p>
+                </section>
+            </section>
+            
+            <section data-background="http://i.giphy.com/eut9Y18OJBbkk.gif" >
+                
+            </section>
+            <section>
+                <section>
+                    <h2>Les feuilles de styles partiales</h2>
+                </section>
+                <section>
+                    <p>Avec SASS on peut importer différentes feuilles de styles dans le fichier principale.</p>
+                    <div class="fragment">
+                        <p>Un exemple d'arborésence pouvant êtres utilisé</p>
+                        <img src="img/import/arbo-partial.png" alt="Arborésence utilisé pour importer des feuilles de styles en SASS" />
+                    </div>
+                </section>
+                <section>
+                    <p>Et voici comment on import les fichier dans le fichier mère</p>
+                    <pre>
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">compass</span>";
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">compass/reset</span>";
+
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">scss/mixins</span>";
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">scss/variables</span>";
+
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">scss/fonts</span>";
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">scss/general</span>";
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>import</span>"<span style="color:#ffb054">scss/header</span>";
+                    </pre>
+                    <p class="fragment">Comme tu peux le remarquer nous n'avons pas besoin de spécifier l'extesion du fichier importé étant donné que ce sera tous des .scss, SASS se charge de prendre le bon fichier</p>
+                </section>
+            </section>
+        </div>
+    </div>
+        <script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+        
+    
+
+});
+    </script>
+</body>
+
+</html>
