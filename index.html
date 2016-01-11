@@ -397,6 +397,62 @@
                     <p class="fragment">Comme tu peux le remarquer nous n'avons pas besoin de spécifier l'extesion du fichier importé étant donné que ce sera tous des .scss, SASS se charge de prendre le bon fichier</p>
                 </section>
             </section>
+            <section>
+                <section>
+                    <h2>Les opérateurs</h2>
+                </section>
+                <section>
+                    <p>SASS permet de faire des calculs on peut donc utilisé les opérateur habituelles + , - , / , * et % .</p><span class="fragment"></span>
+                    <div class="fragment">
+                        <h6>Un exemple</h6>
+    <pre>2em + 2em;  //4em
+2em - 2em;  //0em
+5px * 4;    //20px
+23 % 4,     //3
+
+
+
+<span style="color:#9df39f">font</span>: <span style="color:#edf080">24<span style="color:#ff9d00">px</span></span> / <span style="color:#edf080">1.5<span style="color:#ff9d00">em</span></span>;    //24px / 1.5em;
+<span style="color:#9df39f">font</span>: <span style="color:#edf080">20<span style="color:#ff9d00">px</span></span> / <span style="color:#edf080">5</span> + <span style="color:#edf080">1</span>;    //5px;
+    <span style="color:#9df39f">font</span>: (<span style="color:#edf080">20<span style="color:#ff9d00">px</span></span>/<span style="color:#edf080">5</span>);    //4px;
+    <span style="color:#9df39f">font</span>: <span style="color:#5fe461"><span style="color:#e1efff">$</span>size</span> / <span style="color:#edf080">5</span>;   //4px;  
+    <span style="color:#5fe461"><span style="color:#e1efff">$</span>size</span>: <span style="color:#edf080">25<span style="color:#ff9d00">px</span></span> / <span style="color:#edf080">5</span>;   //4px;
+    </pre>
+                    </div>
+                </section>
+                <section>
+                    <h6>SCSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>container</span>: <span style="color:#edf080">960<span style="color:#ff9d00">px</span></span>; 
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>main</span>: <span style="color:#edf080">600<span style="color:#ff9d00">px</span></span>;
+
+<span style="color:#ffb454"><span style="color:#e1efff">#</span>sidebar</span>{
+<span style="color:#9df39f">width</span>: <span style="color:#5fe461"><span style="color:#e1efff">$</span>container</span> - <span style="color:#5fe461"><span style="color:#e1efff">$</span>main</span>;
+}</pre>
+                    <h6>CSS</h6>
+                    <pre>
+<span style="color:#ffb454"><span style="color:#e1efff">#</span>sidebar</span><span style="color:#e1efff">{</span>
+<span style="color:#9df39f">width</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">360<span style="color:#ff9d00">px</span></span><span style="color:#e1efff">;</span>
+}
+                    </pre>
+                </section>
+                <section>
+                    <h6>Les fonctions de nombre</h6>
+                    <p>SASS à quelques fonction prédéfini pour les nombres</p>
+                    <pre>
+<span style="color:#9df39f">percentage</span>: (<span style="color:#edf080">46</span>/<span style="color:#edf080">72</span>);    //63.88889%;
+<span style="color:#9df39f">round</span>: (<span style="color:#edf080">2.3</span>);    //2;
+<span style="color:#9df39f">ceil</span>: (<span style="color:#edf080">2.2</span>);    //3;
+<span style="color:#9df39f">floor</span>: (<span style="color:#edf080">2.6</span>);    //2;
+<span style="color:#9df39f">abs</span>: (<span style="color:#edf080">-52</span>);    //52;
+                    </pre>
+                </section>
+            </section>
+            <section data-background="http://i.giphy.com/3o8doOlGO3pjQa5h28.gif">
+            </section>
+            <section>
+    
+            </section>
         </div>
     </div>
         <script src="lib/js/head.min.js"></script>
