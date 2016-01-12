@@ -397,6 +397,10 @@
                     <p class="fragment">Comme tu peux le remarquer nous n'avons pas besoin de spécifier l'extesion du fichier importé étant donné que ce sera tous des .scss, SASS se charge de prendre le bon fichier</p>
                 </section>
             </section>
+      <!======================== Opérateur =============================>
+                 <section data-background="http://i.giphy.com/3o8doOlGO3pjQa5h28.gif">
+                </section>
+    
             <section>
                 <section>
                     <h2>Les opérateurs</h2>
@@ -448,10 +452,57 @@
                     </pre>
                 </section>
             </section>
-            <section data-background="http://i.giphy.com/3o8doOlGO3pjQa5h28.gif">
+      <!======================== Condition =============================>
+            <section data-background="http://i.giphy.com/O3TvYTQ69ExH2.gif">
+                <p>Mais on fait quoi avec ses opérateur ?</p>
             </section>
             <section>
-    
+                <section>
+                <h2>Les Condition</h2>
+                </section>
+                <section>
+                    <p>On peut aussi appliquer des conditions un peu comme en <a href="https://openclassrooms.com/courses/dynamisez-vos-sites-web-avec-javascript/les-conditions-6">JavaScript</a>.</p>
+                    <p>Ce qui veut dire que l'on peut se servir des opérateur logique &lt;, &gt;, &lt;=, &gt;=, ==, !=</p> 
+                <pre class="fragment">
+<span style="color:#edf080">1</span> &lt; <span style="color:#edf080">20</span>   // true
+<span style="color:#edf080">10</span> &lt;= <span style="color:#edf080">20</span> // true   
+<span style="color:#edf080">10</span> &gt; <span style="color:#edf080">5</span>   // true
+<span style="color:#edf080">10</span> &gt;= <span style="color:#edf080">5</span>  // true
+
+<span style="color:#edf080">1</span> + <span style="color:#edf080">4</span> == <span style="color:#edf080">5</span>     //true
+<span style="color:#edf080">#FFF</span> == <span style="color:#edf080">white</span>  //true
+<span style="color:#ff9d00">small</span> != big //true
+</pre>
+                </section>
+                <section>
+                    <p>On peut donc ajouter un @if, @else if, @else, a notre SASS par exemple pour avoir différent thème</p>
+                    <h6>SCSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>theme</span>: sunset;
+
+<span style="color:#9effff">div</span>{
+    <span style="color:#ff9d00"><span style="color:#e1efff">@</span>if</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>theme</span> == dust {
+        <span style="color:#9df39f">background</span> : <span style="color:#edf080">#E3E09D</span>;
+        <span style="color:#9df39f">color</span>: <span style="color:#5fe461"><span style="color:#e1efff">$</span>color</span>
+    } <span style="color:#ff9d00"><span style="color:#e1efff">@</span>else if</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>theme</span> == sunset {
+        <span style="color:#9df39f">background</span> : <span style="color:#edf080">#E38A49</span>;
+        <span style="color:#9df39f">color</span>: <span style="color:#edf080">#FFDAD2</span>
+}                    
+</pre>
+                </section>
+                <section>
+                    <h6>La fonction if</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>container-bg</span>: <span style="color:#edf080">#000</span>;
+
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>container</span>{
+     <span style="color:#9df39f">color</span>: if(<span style="color:#5fe461"><span style="color:#e1efff">$</span>container-bg</span> == <span style="color:#edf080">black</span>, <span style="color:#edf080">#fff</span>, <span style="color:#edf080">#000</span>);
+}
+</pre>
+                </section>
+            </section>
+      <!======================== Boucle =============================>
+            <section data-background="http://i.giphy.com/csa9PVEQreGpa.gif">
             </section>
         </div>
     </div>
