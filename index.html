@@ -458,7 +458,7 @@
             </section>
             <section>
                 <section>
-                <h2>Les Condition</h2>
+                <h2>Les Conditions</h2>
                 </section>
                 <section>
                     <p>On peut aussi appliquer des conditions un peu comme en <a href="https://openclassrooms.com/courses/dynamisez-vos-sites-web-avec-javascript/les-conditions-6">JavaScript</a>.</p>
@@ -503,6 +503,83 @@
             </section>
       <!======================== Boucle =============================>
             <section data-background="http://i.giphy.com/csa9PVEQreGpa.gif">
+            </section>
+            <section>
+                <section>
+                    <h2>Les Boucles</h2>
+                </section>
+                <section>
+                    <p>On peut faire des boucles avec SASS !</p>
+                    <p>@for, @while et @each</p>
+                    <p class="fragment">Si SASS c'est pas magique.</p>
+                </section>
+                <section>
+                    <p>La boucle @for</p>
+                    <h6>SCSS</h6>
+                    <pre>
+ <span style="color:#ff9d00"><span style="color:#e1efff">@</span>for</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> <span style="color:#ff9d00">from</span> <span style="color:#edf080">0</span> <span style="color:#ff9d00">to</span> <span style="color:#edf080">5</span>{
+    <span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-</span>#{<span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> + <span style="color:#edf080">1</span>} {
+        <span style="color:#9df39f">font-size</span>: <span style="color:#edf080">.7</span><span style="color:#ff9d00">em</span> + (<span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> * <span style="color:#edf080">.5</span><span style="color:#ff9d00">em</span>);
+    }
+ }               
+                    </pre>
+                    <h6>CSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-1</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">0.7<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-2</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">1.2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-3</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">1.7<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-4</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">2.2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-5</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">2.7<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+                    </pre>
+                </section>
+                  <section>
+                    <p>La boucle @while</p>
+                    <h6>SCSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span>: <span style="color:#edf080">0</span>;
+ <span style="color:#ff9d00"><span style="color:#e1efff">@</span>while</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> &gt; <span style="color:#edf080">5</span>{
+    <span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-</span>#{<span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> + <span style="color:#edf080">1</span>} {
+        <span style="color:#9df39f">font-size</span>: <span style="color:#edf080">.7</span><span style="color:#ff9d00">em</span> + (<span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> * <span style="color:#edf080">.5</span><span style="color:#ff9d00">em</span>);
+    }
+    <span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> : <span style="color:#5fe461"><span style="color:#e1efff">$</span>level</span> + <span style="color:#edf080">1</span>
+ }                       
+                    </pre>
+                    <h6>CSS</h6>
+                      <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-1</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">0.7<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-2</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">1.2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-3</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">1.7<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-4</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">2.2<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>tag-5</span><span style="color:#e1efff">{</span><span style="color:#9df39f">font-size</span> <span style="color:#e1efff">:</span> <span style="color:#edf080">2.7<span style="color:#ff9d00">em</span></span><span style="color:#e1efff">;</span>}
+                    </pre>
+                </section>
+                  <section>
+                    <p>La boucle @each</p>
+                    <h6>SCSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">$</span>reseau-sociaux</span> : <span style="color:#edf080">facebook</span>, <span style="color:#edf080">twitter</span>, <span style="color:#edf080">linkedin</span>, <span style="color:#edf080">github</span>;
+
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>each</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>reseau-sociaux</span> <span style="color:#ff9d00">in</span> <span style="color:#5fe461"><span style="color:#e1efff">$</span>reseau-sociaux</span> {
+    .#{<span style="color:#5fe461"><span style="color:#e1efff">$</span>reseau-sociaux</span>}<span style="color:#ff9d00">-icon</span>{
+        <span style="color:#9df39f">background</span>: <span style="color:#ff9d00">url(</span><span style="color:#edf080">'/img/#{$reseau-sociaux}.png'</span><span style="color:#ff9d00">)</span>;
+    }
+}
+                    </pre>
+                    <h6>CSS</h6>
+                    <pre>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>facebook-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/facebook.png'</span><span style="color:#e1efff">)</span><span style="color:#e1efff">;</span>}
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>twitter-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/twitter.png'<span style="color:#e1efff">);}</span>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>linkedin-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/linkedin.png'</span><span style="color:#e1efff">);}</span>
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>github-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/github.png'<span style="color:#e1efff">);}</span>                  
+                    </pre>
+                </section>
+                <section>
+                    <p>Les boucles peuvent donc faire gagner énormément de temps !</p>
+                    <p>Utiliser les au maximum pour coder un minimum ; )</p>
+                    
+                </section>
+            </section>
+            <section data-background="http://i.giphy.com/j3zc8OjdgOwNi.gif" data-background-size="1400px">
             </section>
         </div>
     </div>
