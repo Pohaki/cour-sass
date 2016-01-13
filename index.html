@@ -290,7 +290,7 @@
                     <h2>extend</h2>
                 </section>
                 <section>
-                    <p>Nous permet d'appeller les propriete d'un séléecteur à un autre.</p>
+                    <p>Nous permet d'appeller les propriete d'un sélecteur à un autre.</p>
                       <h6>SCSS</h6>
                     <pre>
 <span style="color:#5fe461"><span style="color:#e1efff">.</span>button</span><span style="color:#e1efff">{</span>
@@ -570,7 +570,7 @@
 <span style="color:#5fe461"><span style="color:#e1efff">.</span>facebook-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/facebook.png'</span><span style="color:#e1efff">)</span><span style="color:#e1efff">;</span>}
 <span style="color:#5fe461"><span style="color:#e1efff">.</span>twitter-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/twitter.png'<span style="color:#e1efff">);}</span>
 <span style="color:#5fe461"><span style="color:#e1efff">.</span>linkedin-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/linkedin.png'</span><span style="color:#e1efff">);}</span>
-<span style="color:#5fe461"><span style="color:#e1efff">.</span>github-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/github.png'<span style="color:#e1efff">);}</span>                  
+<span style="color:#5fe461"><span style="color:#e1efff">.</span>github-icon</span><span style="color:#e1efff">{</span> <span style="color:#9df39f">background</span> <span style="color:#e1efff">:</span> <span style="color:#ffb054">url</span><span style="color:#e1efff">(</span><span style="color:#edf080">'/img/github.png'</span><span style="color:#e1efff">);}</span>                  
                     </pre>
                 </section>
                 <section>
@@ -581,8 +581,49 @@
             </section>
             <section data-background="http://i.giphy.com/j3zc8OjdgOwNi.gif" data-background-size="1400px">
             </section>
-            
-            <!======== Gif de fin ======>
+            <!--========== Les fonctions  =============-->
+            <section>
+                <section>
+                    <h2>Les fonctions</h2>
+                </section>
+                <section>
+                    <p>On peut apppliquer des fonction avec SASS elles sont toutes <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">ici</a> </p>
+                    <p>On peut donc évidement créer une fonction</p>
+                </section>
+                <section>
+                    <p>@function, @return</p>
+                    <h6>SCSS</h6>
+                    <pre>
+<span style="color:#ff9d00"><span style="color:#e1efff">@</span>each pxem</span>(<span style="color:#5fe461"><span style="color:#e1efff">$</span>px</span>,<span style="color:#5fe461"><span style="color:#e1efff">$</span>context:</span><span style="color:#edf080">16px</span>){
+    <span style="color:#ff9d00"><span style="color:#e1efff">@</span>return</span> (<span style="color:#5fe461"><span style="color:#e1efff">$</span>px</span>/<span style="color:#5fe461"><span style="color:#e1efff">$</span>context</span>) * <span style="color:#edf080">1</span><span style="color:#ff9d00">em</span>;
+}
+<span style="color:#9effff">article</span> <span style="color:#9effff">h2</span>{
+   <span style="color:#9df39f">font-size</span> : <span style="color:#ff9d00">pxem(</span><span style="color:#edf080">45</span><span style="color:#ff9d00">px</span><span style="color:#ff9d00">)</span>; 
+}
+                    </pre>
+                    <h6>CSS</h6>
+                    <pre>
+<span style="color:#9effff">article</span> <span style="color:#9effff">h2</span>{
+   <span style="color:#9df39f">font-size</span> : <span style="color:#edf080">2.813</span><span style="color:#ff9d00">em</span>;
+}                    
+                    </pre>
+                </section>
+            </section>
+            <!--========== Couleurs  =============-->
+            <section>
+                <section>
+                    <h2>Les Couleurs</h2>
+                </section>
+                <section>
+                    <p>SASS permet une gestion des couleurs assez détaillé</p>
+                    <p>On peut inspecter une couleur ou encore mettre une valeur RGBa avec un hexadécimal.</p>
+                    
+                </section>
+                <section>
+                
+                </section>
+            </section>          
+            <!--======== Gif de fin ======-->
             <section data-background="http://i.giphy.com/d2ZeMUDQSSsCP9FC.gif" >
                 <div class="fragment">
                 <p>On peut dire que SASS est à utiliser sans modération</p>
